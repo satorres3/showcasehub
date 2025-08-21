@@ -5,6 +5,8 @@
   },
   "mimeTypes": {
     ".js": "text/javascript",
+    ".ts": "text/javascript",
+    ".tsx": "text/javascript",
     ".css": "text/css"
   }
 }
