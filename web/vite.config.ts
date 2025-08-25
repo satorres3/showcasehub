@@ -1,9 +1,12 @@
 import { defineConfig, loadEnv } from 'vite';
+import path from 'node:path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig(({ mode }) => {
-  // Load env file based on `mode` in the current working directory.
-  const env = loadEnv(mode, process.cwd(), '');
+  // Load the project's root `.env` file regardless of where the command is run.
+  // This allows environment variables defined at the repository root to be
+  // available when running scripts from subdirectories like `web/`.
+  const env = loadEnv(mode, path.resolve(__dirname, '..'), '');
 
   // Create an object with only the keys we want to expose
   const exposedEnvs = {
