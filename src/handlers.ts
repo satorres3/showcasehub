@@ -19,6 +19,7 @@ import type { AppFunction, ChatEntry, Container, KnowledgeFile, Part } from './t
 import { DEFAULT_THEME, FUNCTION_ICONS } from './constants';
 import * as auth from './auth';
 import * as graph from './graph';
+import { queryKnowledgeBase } from './backend';
 
 // General UI Handlers
 // =============================================================================
@@ -158,6 +159,19 @@ export const handleSendMessage = async () => {
     const thinkingIndicator = addMessageToUI([], 'bot', true);
 
     try {
+        const kbAnswer = promptText ? await queryKnowledgeBase(promptText) : null;
+        if (kbAnswer) {
+            if (thinkingIndicator) thinkingIndicator.remove();
+            addMessageToUI([{ text: kbAnswer }], 'bot');
+            activeChat.history.push({ role: 'model', parts: [{ text: kbAnswer }] });
+            if (activeChat.history.length === 2) {
+                activeChat.name = await generateChatName(activeChat.history);
+            }
+            await saveState();
+            renderSidebar(state.currentContainerId);
+            return;
+        }
+
         const stream = await streamChatResponse(
             container.selectedModel,
             container.selectedPersona,

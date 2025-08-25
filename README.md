@@ -11,8 +11,8 @@ The application is architected as a modern Static Web App, featuring a fast, dyn
 - **Container-Based Architecture**: Create isolated workspaces for different teams or purposes. Each container has its own unique configuration.
 - **Deep Customization**:
     - **Branding & Appearance**: Customize everything from login page text and logos to the specific colors of the chat interface for each container.
-    - **Knowledge Base**: Upload files (PDFs, text, images) to provide each container's AI with a unique, private knowledge base for grounded, accurate responses.
-    - **SharePoint Integration**: Securely connect to SharePoint to add files to the knowledge base or attach them directly to chats.
+    - **Knowledge Base**: Upload files (PDFs, text, images) to provide each container's AI with a unique, private knowledge base for grounded, accurate responses. A serverless endpoint now uses a simple ML similarity model so every user queries the same source when asking questions.
+    - **SharePoint Integration**: Securely connect to SharePoint to add files to the knowledge base or attach them directly to chats via a dedicated “Add from SharePoint” button.
     - **Personas & Quick Questions**: Define the AI's personality and pre-populate the chat with relevant, context-aware starter questions.
 - **Multi-Model Support**: Manage a central repository of AI models from various providers (e.g., Google Gemini, Groq). Administrators can assign specific models to each container.
 - **AI-Powered Configuration**: The application uses AI to assist administrators in setting up new containers by suggesting descriptions, personas, quick questions, and even custom functions based on a simple name and type.

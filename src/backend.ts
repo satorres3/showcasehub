@@ -94,3 +94,20 @@ export async function saveAppState(appState: AppStatePayload): Promise<void> {
         console.error("Failed to save state to localStorage", e);
     }
 }
+
+/**
+ * Queries the backend knowledge base for a given question. Returns the answer
+ * if the service can resolve it, otherwise returns null.
+ */
+export async function queryKnowledgeBase(question: string): Promise<string | null> {
+    try {
+        const response = await fetch(`/api/knowledge?q=${encodeURIComponent(question)}`);
+        if (!response.ok) return null;
+        const data = await response.json();
+        return data.answer ?? null;
+    } catch (error) {
+        console.error('Failed to query knowledge base:', error);
+        return null;
+    }
+}
+
