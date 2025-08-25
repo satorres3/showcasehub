@@ -17,12 +17,12 @@ export const DEFAULT_THEME: ChatTheme = {
 };
 
 export const DEFAULT_BRANDING: Branding = {
-    loginTitle: 'The Future of Tech',
+    loginTitle: 'AI Hub',
     loginSubtitle: 'Sign in to continue',
-    hubTitle: 'Welcome to the Hub',
-    hubSubtitle: 'Select a container to get started',
-    hubHeaderTitle: 'The Hub',
-    appLogo: '',
+    hubTitle: 'Welcome',
+    hubSubtitle: 'Select a workspace to get started',
+    hubHeaderTitle: 'AI Hub',
+    appLogo: 'https://plazz.ag/wp-content/uploads/2015/06/plazz_icon.png',
     enableGoogleLogin: true,
     googleClientId: '',
     googleClientSecret: '',
@@ -36,7 +36,7 @@ export const DEFAULT_BRANDING: Branding = {
         brevo: false,
         hubspot: false,
         docusign: false,
-        outlook: true,
+        outlook: false,
     }
 };
 
