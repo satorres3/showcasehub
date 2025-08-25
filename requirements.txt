@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+sqlalchemy
+pyodbc
+python-jose[cryptography]
+httpx
+structlog
+limits
+tenacity
+tiktoken
+pytest
+pytest-asyncio
