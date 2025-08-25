@@ -120,3 +120,10 @@ This repository includes a `staticwebapp.config.json` file. This is the official
 ### Production Environment Variables
 
 In the Azure Portal, navigate to your Static Web App resource and go to **Configuration**. Add your `API_KEY`, `MSAL_CLIENT_ID`, and `MSAL_TENANT_ID` as **Application settings**. These will be securely provided to your application at runtime.
+
+## Troubleshooting
+
+- **AI features disabled**: If the browser console logs `API_KEY environment variable not set. AI features will be disabled.`,
+  ensure `API_KEY` is defined in your `.env` file.
+- **Microsoft login disabled**: A warning `MSAL configuration not found or incomplete from backend. Microsoft login will be disabled.`
+  indicates that `MSAL_CLIENT_ID` or `MSAL_TENANT_ID` is missing.
